@@ -36,6 +36,10 @@ public class WestMarket {
         
     }
     
+    public void imprimirListado(){
+        
+    }
+    
     public void imprimirListadoSimple(){
         
     }
