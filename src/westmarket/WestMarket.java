@@ -1,17 +1,20 @@
 package westmarket;
 
 import java.util.Scanner;
+import java.util.ArrayList;
+import classMarket.Producto;
 
 public class WestMarket {
     public static void main(String[] args) {
-        
+        ArrayList<Producto> producto = new ArrayList<Producto>();
+        menu(producto);
     }
     
-    public void menu(){
+    public static void menu(ArrayList<Producto> producto){
         System.out.println("*********************************************************************");
         System.out.println("BIENVENIDO, PARA CONTINUAR SELECCIONE UNA DE LAS SIGUIENTES OPCIONES...\n");
         System.out.println("*********************************************************************");
-        System.out.println("1- REGISTRAR CLIENTE \n2- VER DATOS DE CLIENTES \n3- DEPOSITAR \n4- SALIR");
+        System.out.println("1- * \n2- * \n3- * \n4- SALIR");
         System.out.println("*********************************************************************");
         
         String opcion = new String();
@@ -24,13 +27,13 @@ public class WestMarket {
                 System.out.println("FAVOR SELECCIONAR UNA OPCION\n");
             }
             else if(opcion.equals("1")){
-                registrarProducto();
+                registrarProducto(producto);
             }
             else if(opcion.equals("2")){
-                imprimirListado();
+                imprimirListado(producto);
             }
             else if(opcion.equals("3")){
-                eliminarProducto();
+                eliminarProducto(producto);
             }  
             else if(opcion.equals("4")){
                 salir();
@@ -38,23 +41,27 @@ public class WestMarket {
         }
     }
     
-    public void registrarProducto(){
-        
+    public static void registrarProducto(ArrayList<Producto> producto){
+        System.out.println("1");
+        menu(producto);
     }
     
-    public void imprimirListado(){
-        
+    public static void imprimirListado(ArrayList<Producto> producto){
+        System.out.println("2");
+        menu(producto);
     }
     
-    public void imprimirListadoSimple(){
-        
+    public static void imprimirListadoSimple(ArrayList<Producto> producto){
+        System.out.println("2.5");
     }
     
-    public void eliminarProducto(){
-        imprimirListadoSimple();
+    public static void eliminarProducto(ArrayList<Producto> producto){
+        imprimirListadoSimple(producto);
+        System.out.println("3");
+        menu(producto);
     }
     
-    public void salir(){
-        
+    public static void salir(){
+        System.out.println("4");
     }
 }
