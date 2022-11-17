@@ -22,7 +22,7 @@ public class Categoria {
     
     @Override
     public String toString() {
-        return "Producto{" +
+        return "Categoria{" +
                 "CODIGO='" + codigo + '\'' +
                 ", DESCRIPCION='" + descripcion + '\'' +
                 '}';
