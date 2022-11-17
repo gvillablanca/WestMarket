@@ -21,7 +21,7 @@ public class WestMarket {
                 registrarProducto();
             }
             else if(opcion.equals("2")){
-                imprimirListadoSimple();
+                imprimirListado();
             }
             else if(opcion.equals("3")){
                 eliminarProducto();
@@ -45,7 +45,7 @@ public class WestMarket {
     }
     
     public void eliminarProducto(){
-        
+        imprimirListadoSimple();
     }
     
     public void salir(){
