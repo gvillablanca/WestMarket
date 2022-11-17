@@ -8,6 +8,12 @@ public class WestMarket {
     }
     
     public void menu(){
+        System.out.println("*********************************************************************");
+        System.out.println("BIENVENIDO, PARA CONTINUAR SELECCIONE UNA DE LAS SIGUIENTES OPCIONES...\n");
+        System.out.println("*********************************************************************");
+        System.out.println("1- REGISTRAR CLIENTE \n2- VER DATOS DE CLIENTES \n3- DEPOSITAR \n4- SALIR");
+        System.out.println("*********************************************************************");
+        
         String opcion = new String();
         while(opcion.isEmpty()){
             System.out.println("OPCION: ");
