@@ -1,17 +1,17 @@
 package classMarket;
 
 public class Producto {
-    String codigo;
+    int codigo;
     String descripcion;
     int precio;
     int stock;
     Categoria categoria;
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 

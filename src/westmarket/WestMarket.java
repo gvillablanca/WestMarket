@@ -52,17 +52,61 @@ public class WestMarket {
     }
     
     public static void imprimirListado(ArrayList<Producto> producto, ArrayList<Categoria> categoria){
-        System.out.println("2");
+        try{
+            System.out.println("2");
+            System.out.println("TODOS LOS PRODUCTOS");
+            if(producto.size()>0){
+                for(int i = 0;i<producto.size();i++){
+                        System.out.println("*********************************************************************");
+                        System.out.println( "\n CODIGO: " +producto.get(i).getCodigo()+
+                                                                        "\n DESCRIPCION: " +producto.get(i).getDescripcion()+
+                                                                        "\n PRECIO: " +producto.get(i).getPrecio()+
+                                                                        "\n STOCK: " +producto.get(i).getStock()+
+                                                                        //"\n CATEGORIA: " +producto.get(i).getCategoria().getDescripcionCompleta());
+                                                                        "\n CATEGORIA: " );
+                        System.out.println("*********************************************************************\n");
+                }
+            }
+            else{
+                  System.out.println("NO EXISTEN PRODUCTOS EN EL SISTEMA");
+            }
+        
         menu(producto, categoria);
+        }
+        catch(Exception e){
+            System.out.println("Error en Sistema, favor volver a reintentar ");
+            menu(producto, categoria);
+        }
     }
     
     public static void imprimirListadoSimple(ArrayList<Producto> producto, ArrayList<Categoria> categoria){
         System.out.println("2.5");
-    }
+        try{
+                System.out.println("PRODUCTOS INGRESADOS");
+                if(producto.size()>0){
+                    for(int i = 0;i<producto.size();i++){
+                        System.out.println("*********************************************************************");
+                        System.out.println( "\n codigo: " +producto.get(i).getCodigo()+
+                                                                        "\n DESCRIPCION: " +producto.get(i).getDescripcion());
+                        System.out.println("*********************************************************************\n");
+                 }
+                }
+                else{
+                  System.out.println("NO EXISTEN PRODUCTOS EN EL SISTEMA"); 
+                }
+                menu(producto, categoria);
+
+        }
+        catch(Exception e){
+            System.out.println("ERROR EN SISTEMA, FAVOR VOLVER A REINTENTAR ");
+            menu(producto, categoria);
+        }
+    } 
     
     public static void eliminarProducto(ArrayList<Producto> producto, ArrayList<Categoria> categoria){
         imprimirListadoSimple(producto,categoria);
         System.out.println("3");
+        
         menu(producto, categoria);
     }
     
