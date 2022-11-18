@@ -54,7 +54,7 @@ public class Producto {
                 ", DESCRIPCION='" + descripcion + '\'' +
                 ", PRECIO='" + precio + '\'' +
                 ", STOCK='" + stock + '\'' +
-                ", CATEGORIA='" + categoria.descripcion + " (cod: "+categoria.codigo +")" +'\'' +
+                ", CATEGORIA='" + categoria.descripcionCompleta +'\'' +
                 '}';
     }   
 }

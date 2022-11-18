@@ -9,7 +9,7 @@ public class WestMarket {
     public static void main(String[] args) {
         ArrayList<Producto> producto = new ArrayList<Producto>();
         ArrayList<Categoria> categoria = new ArrayList<Categoria>();
-        categoria(categoria);
+        //categoria(categoria);
         menu(producto, categoria);        
     }
     
@@ -70,26 +70,35 @@ public class WestMarket {
         System.out.println("4");
     }
     
-    public static Categoria categoria(ArrayList<Categoria> categoria){
+    public static ArrayList<Categoria> categoria(ArrayList<Categoria> categoria){
         Categoria cat = new Categoria();
+        int count = 0; 
         
-        cat.setCodigo(1);
-        cat.setDescripcion("Bebidas");
-        categoria.add(cat);
-        /*
-        cat.setCodigo(2);
-        cat.setDescripcion("Congelados");
-        categoria.add(cat);
-        
-        cat.setCodigo(3);
-        cat.setDescripcion("Lácteos");
-        categoria.add(cat);
-        
-        cat.setCodigo(4);
-        cat.setDescripcion("Aseo");
-        categoria.add(cat);
-        */
+        while(count <4){
+          if(count==0){
+            cat.setCodigo(1);
+            cat.setDescripcion("Bebidas");
+            cat.setDescripcionCompleta("Bebidas (cod: 1)");
+            categoria.add(cat);
+          }else if(count==1){
+            cat.setCodigo(2);
+            cat.setDescripcion("Congelados");
+            cat.setDescripcionCompleta("Congelados (cod: 2)");
+            categoria.add(cat);
+          }else if(count==2){
+            cat.setCodigo(3);
+            cat.setDescripcion("Lácteos");
+            cat.setDescripcionCompleta("Lácteos (cod: 3)");
+            categoria.add(cat);
+          }if(count==3){
+            cat.setCodigo(4);
+            cat.setDescripcion("Aseo");
+            cat.setDescripcionCompleta("Aseo (cod: 4)");
+            categoria.add(cat);            
+          }
+          count ++;
+        }
         System.out.println(categoria);
-        return cat;
+        return categoria;
     }
 }
