@@ -9,7 +9,7 @@ public class WestMarket {
     public static void main(String[] args) {
         ArrayList<Producto> producto = new ArrayList<Producto>();
         ArrayList<Categoria> categoria = new ArrayList<Categoria>();
-        //categoria(categoria);
+        categoria(categoria);
         menu(producto, categoria);        
     }
     
@@ -115,12 +115,7 @@ public class WestMarket {
     }
     
     public static void salir(){
-        try{
-            System.out.println("HASTA PRONTO");
-        }
-        catch(Exception e){
-            System.out.println("error: " + e); 
-        }
+        System.out.println("HASTA PRONTO");
     }
     
     public static ArrayList<Categoria> categoria(ArrayList<Categoria> categoria){
