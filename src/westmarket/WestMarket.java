@@ -15,9 +15,9 @@ public class WestMarket {
     
     public static void menu(ArrayList<Producto> producto, ArrayList<Categoria> categoria){
         System.out.println("*********************************************************************");
-        System.out.println("BIENVENIDO, PARA CONTINUAR SELECCIONE UNA DE LAS SIGUIENTES OPCIONES...\n");
+        System.out.println("--- West Market ---\n");
         System.out.println("*********************************************************************");
-        System.out.println("1- * \n2- * \n3- * \n4- SALIR");
+        System.out.println("1- Registrar producto \n2- Imprimir productos \n3- Eliminar producto \n4- Salir");
         System.out.println("*********************************************************************");
         
         String opcion = new String();        
@@ -47,13 +47,81 @@ public class WestMarket {
     
     public static void registrarProducto(ArrayList<Producto> producto, ArrayList<Categoria> categoria){
         try{
+            System.out.println("--- Registrar Producto ---");
             Producto prod = new Producto();
-            System.out.println(categoria);
-            System.out.println("1");
+            Categoria cat = new Categoria();            
+            
+            String codigo = new String();
+            String descripcion = new String();
+            String precio = new String();
+            String stock = new String();
+            String opcion = new String();
+            
+            while(codigo.isEmpty() || descripcion.isEmpty() || precio.isEmpty() || stock.isEmpty()){
+                System.out.println("ingrese los datos solictados");
+                System.out.println("- Codigo: ");
+                Scanner codigoIn = new Scanner(System.in);
+                codigo = codigoIn.nextLine();
+                
+                System.out.println("- Descripcion: ");
+                Scanner descripcionIn = new Scanner(System.in);
+                descripcion = descripcionIn.nextLine();
+                
+                System.out.println("- Precio: ");
+                Scanner precioIn = new Scanner(System.in);
+                precio = precioIn.nextLine();
+                
+                System.out.println("- Stock: ");
+                Scanner stockIn = new Scanner(System.in);
+                stock = stockIn.nextLine();
+                
+                int codigoNum = Integer.parseInt(codigo);
+                int precioNum = Integer.parseInt(precio);
+                int stockNum = Integer.parseInt(stock);
+                
+                
+                if(codigo.isEmpty() || descripcion.isEmpty() || precio.isEmpty() || stock.isEmpty()){
+                    System.out.println("Favor completar con todos los datos...");                    
+                }
+                else{
+                    for(int i = 0;i<=producto.size();i++){  
+                        if(producto.size()>0){
+                            if(1==2){
+                                
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            
+            
+            /*
+            verificar que producto no este registrado ya
+            si esta registrado, indicarlo y traer la informacion del producto
+            si no
+                solicitar codigo - int
+                solicitar descripcion - string
+                solicitar precio - int
+                solicitar stock - int
+                categoria
+                    desplegar menu de seleccion (utilizar arraylist de categorias y desplegar)
+                        Categorías
+                        1.	Bebidas
+                        2.	Congelados
+                        3.	Lácteos
+                        4.	Aseo
+                    solicitar categoria - categoria.DescripcionCompleta
+                    depende de seleccion asignar categoria-descripcionCompleta
+                    si la seleccion de categorias no es una opcion valida solicitar ingresar nuevamente hasta 3 veces - contar intentos
+                    si no salir e indicar que vuelva a intentar y mandar al menu principal
+                agregar producto a arrayList de producto                    
+            mensaje de producto agregado correctamente
+            */
             menu(producto, categoria);
         }
         catch(Exception e){
-            System.out.println("error: " + e);
+            System.out.println("NO EXISTEN PRODUCTOS EN EL SISTEMA");
             menu(producto, categoria);
         }
     }
@@ -123,22 +191,27 @@ public class WestMarket {
         Categoria cat2 = new Categoria();
         Categoria cat3 = new Categoria();
         Categoria cat4 = new Categoria();
+        
         cat1.setCodigo(1);
         cat1.setDescripcion("Bebidas");
         cat1.setDescripcionCompleta("Bebidas (cod: 1)");
         categoria.add(cat1);
+        
         cat2.setCodigo(2);
         cat2.setDescripcion("Congelados");
         cat2.setDescripcionCompleta("Congelados (cod: 2)");
         categoria.add(cat2);
+        
         cat3.setCodigo(3);
         cat3.setDescripcion("Lácteos");
         cat3.setDescripcionCompleta("Lácteos (cod: 3)");
         categoria.add(cat3);
+        
         cat4.setCodigo(4);
         cat4.setDescripcion("Aseo");
         cat4.setDescripcionCompleta("Aseo (cod: 4)");
         categoria.add(cat4);
+        
         return categoria;
     }
 }
