@@ -177,8 +177,27 @@ public class WestMarket {
     
     public static void eliminarProducto(ArrayList<Producto> producto, ArrayList<Categoria> categoria){
         try{
+            String codigo = new String();
             imprimirListadoSimple(producto,categoria);
-        }
+            System.out.println("Ingrese el codigo del producto que desea eliminar: ");
+            Scanner codigoIn = new Scanner(System.in);
+            codigo = codigoIn.nextLine();
+            int codigoNum = Integer.parseInt(codigo);
+            
+            for(int i = 0;i<=producto.size();i++){
+                if(producto.size()>0){
+                        if(producto.get(i).getCodigo()== codigoNum){
+                                    producto.remove(i);
+                                    System.out.println("*********************************************************************");
+                                    System.out.println("El producto ha sido eliminado: " +producto.get(i).getDescripcion());
+                                    System.out.println("*********************************************************************\n");
+                        }
+                        else{
+                            System.out.println("No existen productos en el sistema"); 
+                }
+            }
+        
+            }}
         catch(Exception e){
             System.out.println("ERROR EN SISTEMA, FAVOR VOLVER A REINTENTAR ");
             menu(producto, categoria);
