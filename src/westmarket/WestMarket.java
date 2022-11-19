@@ -86,38 +86,106 @@ public class WestMarket {
                 else{
                     for(int i = 0;i<=producto.size();i++){  
                         if(producto.size()>0){
-                            if(1==3){
-                                
+                            if(producto.get(i).getCodigo()== codigoNum || producto.get(i).getDescripcion().equals(descripcion) 
+                            || producto.get(i).getPrecio()== precioNum || producto.get(i).getStock()== stockNum){
+                                System.out.println("Producto ya existe en sistema");
+                                break;
                             }
-                            
+                            else{
+                                System.out.println("Categorias:\n1- Bebidas\n2- Congelados\n3- Lacteos\n4- Aseo");
+                                
+                                while(opcion.isEmpty()){
+                                    System.out.println("Seleccione una categoria: ");
+                                    Scanner op = new Scanner(System.in);
+                                    opcion = (op.nextLine()).trim(); 
+
+                                    if(opcion.isEmpty()){
+                                        System.out.println("favor seleccionar una categoria\n");
+                                    }
+                                    else if(opcion.equals("1")){
+                                        cat.setCodigo(categoria.get(1).getCodigo());
+                                        cat.setDescripcion(categoria.get(1).getDescripcion());
+                                        cat.setDescripcionCompleta(categoria.get(1).getDescripcionCompleta());
+                                        categoria.add(cat);
+                                    }
+                                    else if(opcion.equals("2")){
+                                        cat.setCodigo(categoria.get(2).getCodigo());
+                                        cat.setDescripcion(categoria.get(2).getDescripcion());
+                                        cat.setDescripcionCompleta(categoria.get(2).getDescripcionCompleta());
+                                        categoria.add(cat);
+                                    }
+                                    else if(opcion.equals("3")){
+                                        cat.setCodigo(categoria.get(3).getCodigo());
+                                        cat.setDescripcion(categoria.get(3).getDescripcion());
+                                        cat.setDescripcionCompleta(categoria.get(3).getDescripcionCompleta());
+                                        categoria.add(cat);
+                                    }
+                                    else if(opcion.equals("4")){
+                                        cat.setCodigo(categoria.get(4).getCodigo());
+                                        cat.setDescripcion(categoria.get(4).getDescripcion());
+                                        cat.setDescripcionCompleta(categoria.get(4).getDescripcionCompleta());
+                                        categoria.add(cat);
+                                    }
+                                }
+                                prod.setCodigo(codigoNum);
+                                prod.setDescripcion(descripcion);
+                                prod.setPrecio(precioNum);
+                                prod.setStock(stockNum);
+                                prod.setCategoria(cat);
+                                producto.add(prod);
+                                System.out.println("Producto registrado exitosamente\n");
+                                break;
+                            }
+                        }
+                        else{
+                            System.out.println("Categorias:\n1- Bebidas\n2- Congelados\n3- Lacteos\n4- Aseo");
+ 
+                            while(opcion.isEmpty()){
+                                System.out.println("Seleccione una categoria: ");
+                                Scanner op = new Scanner(System.in);
+                                opcion = (op.nextLine()).trim(); 
+
+                                if(opcion.isEmpty()){
+                                    System.out.println("favor seleccionar una categoria\n");
+                                }
+                                else if(opcion.equals("1")){
+                                    cat.setCodigo(categoria.get(1).getCodigo());
+                                    cat.setDescripcion(categoria.get(1).getDescripcion());
+                                    cat.setDescripcionCompleta(categoria.get(1).getDescripcionCompleta());
+                                    categoria.add(cat);
+                                }
+                                else if(opcion.equals("2")){
+                                    cat.setCodigo(categoria.get(2).getCodigo());
+                                    cat.setDescripcion(categoria.get(2).getDescripcion());
+                                    cat.setDescripcionCompleta(categoria.get(2).getDescripcionCompleta());
+                                    categoria.add(cat);
+                                }
+                                else if(opcion.equals("3")){
+                                    cat.setCodigo(categoria.get(3).getCodigo());
+                                    cat.setDescripcion(categoria.get(3).getDescripcion());
+                                    cat.setDescripcionCompleta(categoria.get(3).getDescripcionCompleta());
+                                    categoria.add(cat);
+                                }
+                                else if(opcion.equals("4")){
+                                    cat.setCodigo(categoria.get(4).getCodigo());
+                                    cat.setDescripcion(categoria.get(4).getDescripcion());
+                                    cat.setDescripcionCompleta(categoria.get(4).getDescripcionCompleta());
+                                    categoria.add(cat);
+                                }
+                            }
+                            prod.setCodigo(codigoNum);
+                            prod.setDescripcion(descripcion.toUpperCase());
+                            prod.setPrecio(precioNum);
+                            prod.setStock(stockNum);
+                            prod.setCategoria(cat);
+                            producto.add(prod);
+                            System.out.println("Producto registrado exitosamente\n");
+                            break;                            
                         }
                     }
                 }
             }
             
-            
-            /*
-            verificar que producto no este registrado ya
-            si esta registrado, indicarlo y traer la informacion del producto
-            si no
-                solicitar codigo - int
-                solicitar descripcion - string
-                solicitar precio - int
-                solicitar stock - int
-                categoria
-                    desplegar menu de seleccion (utilizar arraylist de categorias y desplegar)
-                        Categorías
-                        1.	Bebidas
-                        2.	Congelados
-                        3.	Lácteos
-                        4.	Aseo
-                    solicitar categoria - categoria.DescripcionCompleta
-                    depende de seleccion asignar categoria-descripcionCompleta
-                    si la seleccion de categorias no es una opcion valida solicitar ingresar nuevamente hasta 3 veces - contar intentos
-                    si no salir e indicar que vuelva a intentar y mandar al menu principal
-                agregar producto a arrayList de producto                    
-            mensaje de producto agregado correctamente
-            */
             menu(producto, categoria);
         }
         catch(Exception e){
@@ -137,7 +205,7 @@ public class WestMarket {
                                             "\n Descripcion: " +producto.get(i).getDescripcion()+
                                             "\n Precio: " +producto.get(i).getPrecio()+
                                             "\n Stock: " +producto.get(i).getStock()+
-                                            "\n Categoria: " +producto.get(i).getCategoria());
+                                            "\n Categoria: " +producto.get(i).getCategoria().getDescripcionCompleta());
                         System.out.println("*********************************************************************\n");
                 }
             }
@@ -206,6 +274,7 @@ public class WestMarket {
     
     public static void salir(){
         System.out.println("Ha salido del sistema");
+        
     }
     
     public static ArrayList<Categoria> categoria(ArrayList<Categoria> categoria){
@@ -216,24 +285,35 @@ public class WestMarket {
         
         cat1.setCodigo(1);
         cat1.setDescripcion("Bebidas");
-        cat1.setDescripcionCompleta("Bebidas (cod: 1)");
+        cat1.setDescripcionCompleta(("Bebidas (cod: 1)").toUpperCase());
         categoria.add(cat1);
         
         cat2.setCodigo(2);
         cat2.setDescripcion("Congelados");
-        cat2.setDescripcionCompleta("Congelados (cod: 2)");
+        cat2.setDescripcionCompleta(("Congelados (cod: 2)").toUpperCase());
         categoria.add(cat2);
         
         cat3.setCodigo(3);
         cat3.setDescripcion("Lácteos");
-        cat3.setDescripcionCompleta("Lácteos (cod: 3)");
+        cat3.setDescripcionCompleta(("Lácteos (cod: 3)").toUpperCase());
         categoria.add(cat3);
         
         cat4.setCodigo(4);
         cat4.setDescripcion("Aseo");
-        cat4.setDescripcionCompleta("Aseo (cod: 4)");
+        cat4.setDescripcionCompleta(("Aseo (cod: 4)").toUpperCase());
         categoria.add(cat4);
-        
+
         return categoria;
+    }
+    
+     public static boolean isNumeric(String cadena){
+	try {
+            Integer.parseInt(cadena);
+            return true;
+	} 
+        catch (NumberFormatException e){
+            System.out.println("Ingrese valor numerico...");
+            return false;
+	}
     }
 }
