@@ -23,12 +23,12 @@ public class WestMarket {
         String opcion = new String();        
         
         while(opcion.isEmpty()){
-            System.out.println("OPCION: ");
+            System.out.println("Opcion: ");
             Scanner op = new Scanner(System.in);
             opcion = (op.nextLine()).trim();
 
             if(opcion.isEmpty()){
-                System.out.println("FAVOR SELECCIONAR UNA OPCION\n");
+                System.out.println("Favor seleccionar una opcion: \n");
             }
             else if(opcion.equals("1")){
                 registrarProducto(producto, categoria);
@@ -121,7 +121,7 @@ public class WestMarket {
             menu(producto, categoria);
         }
         catch(Exception e){
-            System.out.println("NO EXISTEN PRODUCTOS EN EL SISTEMA");
+            System.out.println("No existen productos en el sistema");
             menu(producto, categoria);
         }
     }
@@ -129,20 +129,20 @@ public class WestMarket {
     public static void imprimirListado(ArrayList<Producto> producto, ArrayList<Categoria> categoria){
         try{
             System.out.println("2");
-            System.out.println("TODOS LOS PRODUCTOS");
+            System.out.println("Todos los productos");
             if(producto.size()>0){
                 for(int i = 0;i<producto.size();i++){
                         System.out.println("*********************************************************************");
-                        System.out.println( "\n CODIGO: " +producto.get(i).getCodigo()+
-                                            "\n DESCRIPCION: " +producto.get(i).getDescripcion()+
-                                            "\n PRECIO: " +producto.get(i).getPrecio()+
-                                            "\n STOCK: " +producto.get(i).getStock()+
-                                            "\n CATEGORIA: " +producto.get(i).getCategoria());
+                        System.out.println( "\n Codigo: " +producto.get(i).getCodigo()+
+                                            "\n Descripcion: " +producto.get(i).getDescripcion()+
+                                            "\n Precio: " +producto.get(i).getPrecio()+
+                                            "\n Stock: " +producto.get(i).getStock()+
+                                            "\n Categoria: " +producto.get(i).getCategoria());
                         System.out.println("*********************************************************************\n");
                 }
             }
             else{
-                System.out.println("NO EXISTEN PRODUCTOS EN EL SISTEMA");
+                System.out.println("No existen productos en el sistema");
             }
         
         menu(producto, categoria);
@@ -155,17 +155,17 @@ public class WestMarket {
     
     public static void imprimirListadoSimple(ArrayList<Producto> producto, ArrayList<Categoria> categoria){
         try{
-                System.out.println("PRODUCTOS INGRESADOS");
+                System.out.println("Productos Ingresados: ");
                 if(producto.size()>0){
                     for(int i = 0;i<producto.size();i++){
                         System.out.println("*********************************************************************");
-                        System.out.println( "\n CODIGO: " +producto.get(i).getCodigo()+
-                                            "\n DESCRIPCION: " +producto.get(i).getDescripcion());
+                        System.out.println( "\n Codigo: " +producto.get(i).getCodigo()+
+                                            "\n Descripcion: " +producto.get(i).getDescripcion());
                         System.out.println("*********************************************************************\n");
                     }
                 }
                 else{
-                    System.out.println("NO EXISTEN PRODUCTOS EN EL SISTEMA"); 
+                    System.out.println("No existen productos en el sistema"); 
                 }
                 menu(producto, categoria);
         }
@@ -186,7 +186,7 @@ public class WestMarket {
     }
     
     public static void salir(){
-        System.out.println("HASTA PRONTO");
+        System.out.println("Ha salido del sistema");
     }
     
     public static ArrayList<Categoria> categoria(ArrayList<Categoria> categoria){
