@@ -108,10 +108,13 @@ public class WestMarket {
     } 
     
     public static void eliminarProducto(ArrayList<Producto> producto, ArrayList<Categoria> categoria){
-        imprimirListadoSimple(producto,categoria);
-        System.out.println("3");
-        
-        menu(producto, categoria);
+        try{
+            imprimirListadoSimple(producto,categoria);
+        }
+        catch(Exception e){
+            System.out.println("ERROR EN SISTEMA, FAVOR VOLVER A REINTENTAR ");
+            menu(producto, categoria);
+        }
     }
     
     public static void salir(){
