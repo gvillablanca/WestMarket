@@ -254,7 +254,7 @@ public class WestMarket {
                 }
         }
         catch(Exception e){
-            System.out.println("ERROR EN SISTEMA, FAVOR VOLVER A REINTENTAR ");
+            System.out.println("Error en Sistema, favor volver a reintentar ");
             menu(producto, categoria);
         }
     } 
@@ -268,32 +268,33 @@ public class WestMarket {
             Scanner codigoIn = new Scanner(System.in);
             codigo = codigoIn.nextLine();
             int codigoNum = Integer.parseInt(codigo);
-            
             for(int i = 0;i<=producto.size();i++){
                 if(producto.size()>0){
-                        if(producto.get(i).getCodigo()== codigoNum){
-                                    producto.remove(i);
-                                    System.out.println("*********************************************************************");
-                                    System.out.println("El producto ha sido eliminado: " +producto.get(i).getDescripcion());
-                                    System.out.println("*********************************************************************\n");
-                        }
-                        else{
-                            System.out.println("No existen productos en el sistema"); 
-                        }
+                    if(producto.get(i).getCodigo()== codigoNum){
+                        producto.remove(i);
+                        System.out.println("*********************************************************************");
+                        System.out.println("El producto ha sido eliminado: " +producto.get(i).getDescripcion());
+                        System.out.println("*********************************************************************\n");
+                        break;
+                    }
+                    else{
+                        System.out.println("Producto indicado no existe en sistema");
+                    }
                 }
-        
+                else{
+                    System.out.println("No existen productos en el sistema"); 
+                }
             }
+            menu(producto, categoria);
         }
         catch(Exception e){
-            //System.out.println("ERROR EN SISTEMA, FAVOR VOLVER A REINTENTAR ");
             System.out.println(e);
             menu(producto, categoria);
         }
     }
     
     public static void salir(){
-        System.out.println("Ha salido del sistema");
-        
+        System.out.println("Ha salido del sistema");        
     }
     
     public static ArrayList<Categoria> categoria(ArrayList<Categoria> categoria){
