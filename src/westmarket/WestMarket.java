@@ -126,10 +126,18 @@ public class WestMarket {
                                             categoria.add(cat);
                                         }
                                     }
+                                    if(precioNum>0){
+                                        prod.setPrecio(precioNum);
+                                    }
+                                    else if(stockNum > 0){
+                                        prod.setStock(stockNum);
+                                    }
+                                    else{
+                                        System.out.println("Ingrese valores mayores a 0");
+                                        break;
+                                    }
                                     prod.setCodigo(codigoNum);
                                     prod.setDescripcion(descripcion);
-                                    prod.setPrecio(precioNum);
-                                    prod.setStock(stockNum);
                                     prod.setCategoria(cat);
                                     producto.add(prod);
                                     System.out.println("Producto registrado exitosamente\n");
@@ -173,11 +181,18 @@ public class WestMarket {
                                         cat.setDescripcionCompleta(categoria.get(3).getDescripcionCompleta());
                                     }
                                 }
-                                System.out.println(cat);
+                                if(precioNum>0){
+                                    prod.setPrecio(precioNum);
+                                }
+                                else if(stockNum > 0){
+                                    prod.setStock(stockNum);
+                                }
+                                else{
+                                    System.out.println("Ingrese valores mayores a 0");
+                                    break;
+                                }
                                 prod.setCodigo(codigoNum);
-                                prod.setDescripcion(descripcion.toUpperCase());
-                                prod.setPrecio(precioNum);
-                                prod.setStock(stockNum);
+                                prod.setDescripcion(descripcion.toUpperCase());                                                   
                                 prod.setCategoria(cat);
                                 producto.add(prod);
                                 System.out.println("Producto registrado exitosamente\n");
@@ -191,7 +206,7 @@ public class WestMarket {
             menu(producto, categoria);
         }
         catch(Exception e){
-            System.out.println(e);
+            System.out.println("Error en Sistema, favor volver a reintentar ");
             menu(producto, categoria);
         }
     }
@@ -249,6 +264,7 @@ public class WestMarket {
         try{
             String codigo = new String();
             imprimirListadoSimple(producto,categoria);
+            
             System.out.println("Ingrese el codigo del producto que desea eliminar: ");
             Scanner codigoIn = new Scanner(System.in);
             codigo = codigoIn.nextLine();
