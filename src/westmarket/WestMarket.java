@@ -73,27 +73,77 @@ public class WestMarket {
                 
                 System.out.println("- Stock: ");
                 Scanner stockIn = new Scanner(System.in);
-                stock = stockIn.nextLine();
-                
-                int codigoNum = Integer.parseInt(codigo);
-                int precioNum = Integer.parseInt(precio);
-                int stockNum = Integer.parseInt(stock);
-                
+                stock = stockIn.nextLine();               
                 
                 if(codigo.isEmpty() || descripcion.isEmpty() || precio.isEmpty() || stock.isEmpty()){
                     System.out.println("Favor completar con todos los datos...");                    
                 }
                 else{
                     for(int i = 0;i<=producto.size();i++){  
-                        if(producto.size()>0){
-                            if(producto.get(i).getCodigo()== codigoNum || producto.get(i).getDescripcion().equals(descripcion) 
-                            || producto.get(i).getPrecio()== precioNum || producto.get(i).getStock()== stockNum){
-                                System.out.println("Producto ya existe en sistema");
-                                break;
+                        if(producto.size()>0){                            
+                            if(isNumeric(codigo) && isNumeric(precio) && isNumeric(stock)){
+                                int codigoNum = Integer.parseInt(codigo);
+                                int precioNum = Integer.parseInt(precio);
+                                int stockNum = Integer.parseInt(stock);
+                                if(producto.get(i).getCodigo()== codigoNum || producto.get(i).getDescripcion().equals(descripcion) 
+                                || producto.get(i).getPrecio()== precioNum || producto.get(i).getStock()== stockNum){
+                                    System.out.println("Producto ya existe en sistema");
+                                    break;
+                                }
+                                else{
+                                    System.out.println("Categorias:\n1- Bebidas\n2- Congelados\n3- Lacteos\n4- Aseo");
+
+                                    while(opcion.isEmpty()){
+                                        System.out.println("Seleccione una categoria: ");
+                                        Scanner op = new Scanner(System.in);
+                                        opcion = (op.nextLine()).trim(); 
+
+                                        if(opcion.isEmpty()){
+                                            System.out.println("favor seleccionar una categoria\n");
+                                        }
+                                        else if(opcion.equals("1")){
+                                            cat.setCodigo(categoria.get(0).getCodigo());
+                                            cat.setDescripcion(categoria.get(0).getDescripcion());
+                                            cat.setDescripcionCompleta(categoria.get(0).getDescripcionCompleta());
+                                            categoria.add(cat);
+                                        }
+                                        else if(opcion.equals("2")){
+                                            cat.setCodigo(categoria.get(1).getCodigo());
+                                            cat.setDescripcion(categoria.get(1).getDescripcion());
+                                            cat.setDescripcionCompleta(categoria.get(1).getDescripcionCompleta());
+                                            categoria.add(cat);
+                                        }
+                                        else if(opcion.equals("3")){
+                                            cat.setCodigo(categoria.get(2).getCodigo());
+                                            cat.setDescripcion(categoria.get(2).getDescripcion());
+                                            cat.setDescripcionCompleta(categoria.get(2).getDescripcionCompleta());
+                                            categoria.add(cat);
+                                                   }
+                                        else if(opcion.equals("4")){
+                                            cat.setCodigo(categoria.get(3).getCodigo());
+                                            cat.setDescripcion(categoria.get(3).getDescripcion());
+                                            cat.setDescripcionCompleta(categoria.get(3).getDescripcionCompleta());
+                                            categoria.add(cat);
+                                        }
+                                    }
+                                    prod.setCodigo(codigoNum);
+                                    prod.setDescripcion(descripcion);
+                                    prod.setPrecio(precioNum);
+                                    prod.setStock(stockNum);
+                                    prod.setCategoria(cat);
+                                    producto.add(prod);
+                                    System.out.println("Producto registrado exitosamente\n");
+                                    break;
+                                }
                             }
-                            else{
+                        }
+                        else{                                
+                            if(isNumeric(codigo) && isNumeric(precio) && isNumeric(stock)){
+                                int codigoNum = Integer.parseInt(codigo);
+                                int precioNum = Integer.parseInt(precio);
+                                int stockNum = Integer.parseInt(stock);
                                 System.out.println("Categorias:\n1- Bebidas\n2- Congelados\n3- Lacteos\n4- Aseo");
-                                
+
                                 while(opcion.isEmpty()){
                                     System.out.println("Seleccione una categoria: ");
                                     Scanner op = new Scanner(System.in);
@@ -103,84 +153,36 @@ public class WestMarket {
                                         System.out.println("favor seleccionar una categoria\n");
                                     }
                                     else if(opcion.equals("1")){
+                                        cat.setCodigo(categoria.get(0).getCodigo());
+                                        cat.setDescripcion(categoria.get(0).getDescripcion());
+                                        cat.setDescripcionCompleta(categoria.get(0).getDescripcionCompleta());
+                                    }
+                                    else if(opcion.equals("2")){
                                         cat.setCodigo(categoria.get(1).getCodigo());
                                         cat.setDescripcion(categoria.get(1).getDescripcion());
                                         cat.setDescripcionCompleta(categoria.get(1).getDescripcionCompleta());
-                                        categoria.add(cat);
                                     }
-                                    else if(opcion.equals("2")){
+                                    else if(opcion.equals("3")){
                                         cat.setCodigo(categoria.get(2).getCodigo());
                                         cat.setDescripcion(categoria.get(2).getDescripcion());
                                         cat.setDescripcionCompleta(categoria.get(2).getDescripcionCompleta());
-                                        categoria.add(cat);
                                     }
-                                    else if(opcion.equals("3")){
+                                    else if(opcion.equals("4")){
                                         cat.setCodigo(categoria.get(3).getCodigo());
                                         cat.setDescripcion(categoria.get(3).getDescripcion());
                                         cat.setDescripcionCompleta(categoria.get(3).getDescripcionCompleta());
-                                        categoria.add(cat);
-                                    }
-                                    else if(opcion.equals("4")){
-                                        cat.setCodigo(categoria.get(4).getCodigo());
-                                        cat.setDescripcion(categoria.get(4).getDescripcion());
-                                        cat.setDescripcionCompleta(categoria.get(4).getDescripcionCompleta());
-                                        categoria.add(cat);
                                     }
                                 }
+                                System.out.println(cat);
                                 prod.setCodigo(codigoNum);
-                                prod.setDescripcion(descripcion);
+                                prod.setDescripcion(descripcion.toUpperCase());
                                 prod.setPrecio(precioNum);
                                 prod.setStock(stockNum);
                                 prod.setCategoria(cat);
                                 producto.add(prod);
                                 System.out.println("Producto registrado exitosamente\n");
-                                break;
-                            }
-                        }
-                        else{
-                            System.out.println("Categorias:\n1- Bebidas\n2- Congelados\n3- Lacteos\n4- Aseo");
- 
-                            while(opcion.isEmpty()){
-                                System.out.println("Seleccione una categoria: ");
-                                Scanner op = new Scanner(System.in);
-                                opcion = (op.nextLine()).trim(); 
-
-                                if(opcion.isEmpty()){
-                                    System.out.println("favor seleccionar una categoria\n");
-                                }
-                                else if(opcion.equals("1")){
-                                    cat.setCodigo(categoria.get(1).getCodigo());
-                                    cat.setDescripcion(categoria.get(1).getDescripcion());
-                                    cat.setDescripcionCompleta(categoria.get(1).getDescripcionCompleta());
-                                    categoria.add(cat);
-                                }
-                                else if(opcion.equals("2")){
-                                    cat.setCodigo(categoria.get(2).getCodigo());
-                                    cat.setDescripcion(categoria.get(2).getDescripcion());
-                                    cat.setDescripcionCompleta(categoria.get(2).getDescripcionCompleta());
-                                    categoria.add(cat);
-                                }
-                                else if(opcion.equals("3")){
-                                    cat.setCodigo(categoria.get(3).getCodigo());
-                                    cat.setDescripcion(categoria.get(3).getDescripcion());
-                                    cat.setDescripcionCompleta(categoria.get(3).getDescripcionCompleta());
-                                    categoria.add(cat);
-                                }
-                                else if(opcion.equals("4")){
-                                    cat.setCodigo(categoria.get(4).getCodigo());
-                                    cat.setDescripcion(categoria.get(4).getDescripcion());
-                                    cat.setDescripcionCompleta(categoria.get(4).getDescripcionCompleta());
-                                    categoria.add(cat);
-                                }
-                            }
-                            prod.setCodigo(codigoNum);
-                            prod.setDescripcion(descripcion.toUpperCase());
-                            prod.setPrecio(precioNum);
-                            prod.setStock(stockNum);
-                            prod.setCategoria(cat);
-                            producto.add(prod);
-                            System.out.println("Producto registrado exitosamente\n");
-                            break;                            
+                                break;  
+                            }                                                          
                         }
                     }
                 }
@@ -189,7 +191,7 @@ public class WestMarket {
             menu(producto, categoria);
         }
         catch(Exception e){
-            System.out.println("No existen productos en el sistema");
+            System.out.println(e);
             menu(producto, categoria);
         }
     }
@@ -293,7 +295,7 @@ public class WestMarket {
             return true;
 	} 
         catch (NumberFormatException e){
-            System.out.println("Ingrese valor numerico...");
+            System.out.println("Ingrese valor numerico correspondiente a lo solicitado...");
             return false;
 	}
     }
