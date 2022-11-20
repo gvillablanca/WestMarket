@@ -237,7 +237,6 @@ public class WestMarket {
                 else{
                     System.out.println("No existen productos en el sistema"); 
                 }
-                menu(producto, categoria);
         }
         catch(Exception e){
             System.out.println("ERROR EN SISTEMA, FAVOR VOLVER A REINTENTAR ");
@@ -270,7 +269,8 @@ public class WestMarket {
             }
         }
         catch(Exception e){
-            System.out.println("ERROR EN SISTEMA, FAVOR VOLVER A REINTENTAR ");
+            //System.out.println("ERROR EN SISTEMA, FAVOR VOLVER A REINTENTAR ");
+            System.out.println(e);
             menu(producto, categoria);
         }
     }
