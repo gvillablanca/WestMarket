@@ -262,10 +262,11 @@ public class WestMarket {
                         }
                         else{
                             System.out.println("No existen productos en el sistema"); 
+                        }
                 }
-            }
         
-            }}
+            }
+        }
         catch(Exception e){
             System.out.println("ERROR EN SISTEMA, FAVOR VOLVER A REINTENTAR ");
             menu(producto, categoria);
