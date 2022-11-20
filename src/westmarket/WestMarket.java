@@ -224,6 +224,8 @@ public class WestMarket {
             else{
                 System.out.println("No existen productos en el sistema");
             }
+        
+        menu(producto, categoria);
         }
         catch(Exception e){
             System.out.println("Error en Sistema, favor volver a reintentar ");
@@ -259,34 +261,37 @@ public class WestMarket {
             imprimirListadoSimple(producto,categoria);
             
             while(codigo.isEmpty()){
-                if(producto.size()>0){
-                    System.out.println("Ingrese el codigo del producto que desea eliminar: ");
-                    Scanner codigoIn = new Scanner(System.in);
-                    codigo = codigoIn.nextLine();
-
-                    if(codigo.isEmpty()){
-                        System.out.println("Favor ingresar codigo a eliminar");
-                    }
-                    else{
-                        if(isNumeric(codigo)){
-                            int codigoNum = Integer.parseInt(codigo);                        
-                            for(int i = 0;i<producto.size();i++){                            
-                                    if(producto.get(i).getCodigo()== codigoNum){
-                                        indice=i;
-                                        producto.remove(indice);
-                                        System.out.println("*********************************************************************");
-                                        System.out.println("El producto ha sido eliminado") ;
-                                        System.out.println("*********************************************************************\n");
-                                        break;
-                                    }                            
-                            }
-                        }
-                    }  
+                System.out.println("Ingrese el codigo del producto que desea eliminar: ");
+                Scanner codigoIn = new Scanner(System.in);
+                codigo = codigoIn.nextLine();
+                if(codigo.isEmpty()){
+                    System.out.println("Favor ingresar codigo a eliminar");
                 }
                 else{
-                    menu(producto, categoria);
-                }       
+                    if(isNumeric(codigo)){
+                        int codigoNum = Integer.parseInt(codigo);
+                        
+                        for(int i = 0;i<producto.size();i++){
+                            if(producto.size()>0){
+
+                                if(producto.get(i).getCodigo()== codigoNum){
+                                    indice=i;
+                                    System.out.println("indice: " + i);
+                                    producto.remove(indice);
+                                    System.out.println("*********************************************************************");
+                                    System.out.println("El producto ha sido eliminado") ;
+                                    System.out.println("*********************************************************************\n");
+                                    break;
+                                }
+                            }
+                            else{
+                                System.out.println("No se registran productos en el sistema");
+                            }
+                        }
+                    }
+                }
             }
+            menu(producto, categoria);
         }
         catch(Exception e){
             System.out.println(e);
@@ -295,8 +300,7 @@ public class WestMarket {
     }
     
     public static void salir(){
-        System.out.println("Ha salido del sistema");
-        System.exit(0);
+        System.out.println("Ha salido del sistema");        
     }
     
     public static ArrayList<Categoria> categoria(ArrayList<Categoria> categoria){
