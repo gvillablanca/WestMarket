@@ -41,7 +41,11 @@ public class WestMarket {
             }  
             else if(opcion.equals("4")){
                 salir();
-            }  
+            }
+            else{
+                System.out.println("Opcion Invalida");
+                opcion = new String();
+            }
         }
     }
     
